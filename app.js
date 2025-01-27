@@ -1,9 +1,14 @@
-let amigos = [];
+//Amigo Secreto.
 
 const botonAñadir = document.querySelector('.button-add');
+const botonSortear = document.querySelector('.button-draw');
 const inputAmigo = document.getElementById('amigo');
 const listaAmigos = document.getElementById('listaAmigos');
+const listaResultado = document.getElementById('resultado');
 
+let amigos = [];
+
+//evento click botón añadir.
 botonAñadir.addEventListener('click', e =>{
     const nombre = inputAmigo.value.trim();
     
@@ -12,21 +17,35 @@ botonAñadir.addEventListener('click', e =>{
     return false };
 
     amigos.push(nombre);
-    console.log(amigos);
+    //console.log(amigos);
     renderLists()
     inputAmigo.value = "";
 
     }
 );
 
+//Carga de lista de amigos.
 function renderLists() {
-    const listaAmigosUl = document.getElementById('listaAmigos');
-    listaAmigosUl.innerHTML = "";
+    listaAmigos.innerHTML = "";
 
     amigos.forEach(amigo => {
         const li = document.createElement('li');
         li.textContent = amigo;
-        listaAmigosUl.appendChild(li);
+        listaAmigos.appendChild(li);
     });
 }
 
+//Evento click boton sortear.
+botonSortear.addEventListener('click', e =>{
+        if(amigos.length === 0){
+            alert('Debe ingresar al menos dos participantes para realizar el sorteo.');
+            return;
+        }
+            let randomIndex = Math.floor(Math.random() * amigos.length);
+            const li = document.createElement('li');
+
+            listaResultado.innerHTML = "";
+            li.textContent = `El amigo secreto sorteado es: ${amigos[randomIndex]}.`;
+            listaResultado.appendChild(li);
+      
+})
