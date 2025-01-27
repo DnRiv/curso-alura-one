@@ -17,7 +17,6 @@ botonAñadir.addEventListener('click', e =>{
     return false };
 
     amigos.push(nombre);
-    //console.log(amigos);
     renderLists()
     inputAmigo.value = "";
 
@@ -33,14 +32,14 @@ function renderLists() {
         li.textContent = amigo;
         listaAmigos.appendChild(li);
     });
-}
+};
 
 //Evento click boton sortear.
 botonSortear.addEventListener('click', e =>{
         if(amigos.length === 0){
             alert('Debe ingresar al menos dos participantes para realizar el sorteo.');
             return;
-        }
+            }
             let randomIndex = Math.floor(Math.random() * amigos.length);
             const li = document.createElement('li');
 
@@ -48,4 +47,11 @@ botonSortear.addEventListener('click', e =>{
             li.textContent = `El amigo secreto sorteado es: ${amigos[randomIndex]}.`;
             listaResultado.appendChild(li);
       
-})
+    }
+);
+
+//Validación solo texto.
+inputAmigo.addEventListener('input', () => {
+    inputAmigo.value = inputAmigo.value.replace(/[^A-Za-zÀ-ÿ\s]/g, '');
+});
+
