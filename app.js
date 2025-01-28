@@ -13,15 +13,17 @@ botonAñadir.addEventListener('click', e =>{
     const nombre = inputAmigo.value.trim();
     
     if(nombre ===''){
-    alert('Por favor, inserte un nombre.');
-    return false };
+        alert('Por favor, inserte un nombre.');
+        return false };
+    if(amigos.includes(nombre)){
+        alert('El nombre ya está en la lista.');
+        return false };
 
     amigos.push(nombre);
-    renderLists()
+    renderLists();
     inputAmigo.value = "";
 
-    }
-);
+});
 
 //Carga de lista de amigos.
 function renderLists() {
@@ -36,19 +38,20 @@ function renderLists() {
 
 //Evento click boton sortear.
 botonSortear.addEventListener('click', e =>{
-        if(amigos.length === 0){
+        if(amigos.length < 2){
             alert('Debe ingresar al menos dos participantes para realizar el sorteo.');
-            return;
-            }
+            return }
+
             let randomIndex = Math.floor(Math.random() * amigos.length);
             const li = document.createElement('li');
 
             listaResultado.innerHTML = "";
-            li.textContent = `El amigo secreto sorteado es: ${amigos[randomIndex]}.`;
+            li.textContent = `El amigo secreto sorteado es: ${amigos[randomIndex]}!`;
             listaResultado.appendChild(li);
+            amigos.splice(randomIndex, 1);
+            renderLists();
       
-    }
-);
+});
 
 //Validación solo texto.
 inputAmigo.addEventListener('input', () => {
