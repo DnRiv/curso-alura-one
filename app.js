@@ -57,4 +57,3 @@ botonSortear.addEventListener('click', e =>{
 inputAmigo.addEventListener('input', () => {
     inputAmigo.value = inputAmigo.value.replace(/[^A-Za-zÀ-ÿ\s]/g, '');
 });
-
