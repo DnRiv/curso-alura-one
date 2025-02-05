@@ -15,17 +15,17 @@ Sorteo aleatorio: Elige a un participante al azar y lo elimina de la lista.
 Interfaz dinámica: Las listas de participantes y resultados se actualizan en tiempo real.
 
 ## Instalación
-Clona este repositorio:
+1. Clona este repositorio:
 
-git clone https://github.com/DnRiv/curso-alura-one.git
+    git clone https://github.com/DnRiv/curso-alura-one.git
 
-Navega al directorio del proyecto:
+2. Navega al directorio del proyecto:
 
-cd amigo-secreto
+    cd amigo-secreto
 
-Abre el archivo index.html en tu navegador:
+3. Abre el archivo index.html en tu navegador:
 
-open index.html
+    open index.html
 
 ## Uso
 Ingresa el nombre de los participantes en el campo de texto.
